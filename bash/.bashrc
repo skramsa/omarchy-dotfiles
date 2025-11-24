@@ -58,3 +58,11 @@ alias gf='git fetch'
 # alias gcm='git commit -m'
 alias gam='git commit -a -m'
 # alias gca='git commit -a --amend'
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
