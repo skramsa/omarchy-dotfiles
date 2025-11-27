@@ -1,115 +1,156 @@
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-        "type": "none"
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  // "logo": {
+  //   "type": "file",
+  //   "source": "~/.config/omarchy/branding/about.txt",
+  //   "color": { "1": "green" },
+  //   "padding": {
+  //     "top": 2,
+  //     "right": 6,
+  //     "left": 2
+  //   }
+  // },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌──────────────────────Hardware──────────────────────┐"
     },
-    "display": {
-        "separator": "->   ",
-        "color": {
-            "separator": "1" // Bold
-        },
-        "constants": [
-            "───────────────────────────"
-        ],
-        "key": {
-            "type": "both",
-            "paddingLeft": 4
-        }
+    {
+      "type": "host",
+      "key": " PC",
+      "keyColor": "green"
     },
-    "modules": [
-        {
-            "type": "title",
-            "format": "                             {user-name-colored}{at-symbol-colored}{host-name-colored}"
-        },
-        "break",
-        {
-            "type": "custom",
-            "format": "┌{$1} {#1}System Information{#} {$1}┐"
-        },
-        "break",
-        {
-            "key": "OS           ",
-            "keyColor": "red",
-            "type": "os"
-        },
-        {
-            "key": "Machine      ",
-            "keyColor": "green",
-            "type": "host"
-        },
-        {
-            "key": "Kernel       ",
-            "keyColor": "magenta",
-            "type": "kernel"
-        },
-        {
-            "key": "Uptime       ",
-            "keyColor": "red",
-            "type": "uptime"
-        },
-        {
-            "key": "Resolution   ",
-            "keyColor": "yellow",
-            "type": "display",
-            "compactType": "original-with-refresh-rate"
-        },
-        {
-            "key": "WM           ",
-            "keyColor": "blue",
-            "type": "wm"
-        },
-        {
-            "key": "DE           ",
-            "keyColor": "green",
-            "type": "de"
-        },
-        {
-            "key": "Shell        ",
-            "keyColor": "cyan",
-            "type": "shell"
-        },
-        {
-            "key": "Terminal     ",
-            "keyColor": "red",
-            "type": "terminal"
-        },
-        {
-            "key": "CPU          ",
-            "keyColor": "yellow",
-            "type": "cpu"
-        },
-        {
-            "key": "GPU          ",
-            "keyColor": "blue",
-            "type": "gpu"
-        },
-        {
-            "key": "Memory       ",
-            "keyColor": "magenta",
-            "type": "memory"
-        },
-        {
-            "key": "Local IP     ",
-            "keyColor": "red",
-            "type": "localip",
-            "compact": true
-        },
-        {
-            "key": "Public IP    ",
-            "keyColor": "cyan",
-            "type": "publicip",
-            "timeout": 1000
-        },
-        "break",
-        {
-            "type": "custom",
-            "format": "└{$1}────────────────────{$1}┘"
-        },
-        "break",
-        {
-            "type": "colors",
-            "paddingLeft": 34,
-            "symbol": "circle"
-        }
-    ]
+    {
+      "type": "cpu",
+      "key": "│ ├",
+      "showPeCoreCount": true,
+      "keyColor": "green"
+    },
+    {
+      "type": "gpu",
+      "key": "│ ├",
+      "detectionMethod": "pci",
+      "keyColor": "green"
+    },
+    {
+      "type": "display",
+      "key": "│ ├󱄄",
+      "keyColor": "green"
+    },
+    {
+      "type": "disk",
+      "key": "│ ├󰋊",
+      "keyColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": "│ ├",
+      "keyColor": "green"
+    },
+    {
+      "type": "swap",
+      "key": "└ └󰓡 ",
+      "keyColor": "green"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌──────────────────────Software──────────────────────┐"
+    },
+    {
+      "type": "command",
+      "key": "\ue900 OS",
+      "keyColor": "blue",
+      "text": "version=$(omarchy-version); echo \"Omarchy $version\""
+    },
+    {
+      "type": "command",
+      "key": "│ ├󰘬",
+      "keyColor": "blue",
+      "text": "branch=$(omarchy-version-branch); echo \"$branch\""
+    },
+    {
+      "type": "command",
+      "key": "│ ├󰔫",
+      "keyColor": "blue",
+      "text": "channel=$(omarchy-version-channel); echo \"$channel\""
+    },
+    {
+      "type": "kernel",
+      "key": "│ ├",
+      "keyColor": "blue"
+    },
+    {
+      "type": "wm",
+      "key": "│ ├",
+      "keyColor": "blue"
+    },
+    {
+      "type": "de",
+      "key": " DE",
+      "keyColor": "blue"
+    },
+    {
+      "type": "terminal",
+      "key": "│ ├",
+      "keyColor": "blue"
+    },
+    {
+      "type": "packages",
+      "key": "│ ├󰏖",
+      "keyColor": "blue"
+    },
+    {
+      "type": "wmtheme",
+      "key": "│ ├󰉼",
+      "keyColor": "blue"
+    },
+    {
+      "type": "command",
+      "key": "│ ├󰸌",
+      "keyColor": "blue",
+      "text": "theme=$(omarchy-theme-current); echo -e \"$theme \\e[38m●\\e[37m●\\e[36m●\\e[35m●\\e[34m●\\e[33m●\\e[32m●\\e[31m●\""
+    },
+    {
+      "type": "terminalfont",
+      "key": "└ └",
+      "keyColor": "blue"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m┌────────────────Age / Uptime / Update───────────────┐"
+    },
+    {
+      "type": "command",
+      "key": "󱦟 OS Age",
+      "keyColor": "magenta",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+    },
+    {
+      "type": "uptime",
+      "key": "󱫐 Uptime",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "command",
+      "key": " Update",
+      "keyColor": "magenta",
+      "text": "updated=$(omarchy-version-pkgs); echo \"$updated\""
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m└────────────────────────────────────────────────────┘"
+    },
+    "break"
+  ]
 }
