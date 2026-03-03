@@ -1,0 +1,7 @@
+
+[Desktop Entry]
+Type=Application
+Name=A-MGMT Wayland
+Exec=/home/samsa/.local/bin/sdlfreerdp.sh
+Icon=virt-viewer
+Terminal=false

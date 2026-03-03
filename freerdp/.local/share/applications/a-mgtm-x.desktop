@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=A-MGMT Xorg
+Exec=/home/samsa/.local/bin/xfreerdp-wrapper.sh
+Icon=virt-viewer
+Terminal=false
