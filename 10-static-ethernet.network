@@ -1,0 +1,11 @@
+[Match]
+Name=enp0s31f6
+
+[Link]
+RequiredForOnline=routable
+
+[Network]
+Address=172.22.116.1/16
+Gateway=172.22.110.254
+DNS=172.22.115.99
+DNS=172.22.115.180
